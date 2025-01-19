@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSM-CAFETERIA</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color:rgb(36,117,165);
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+         button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        img {
+            max-width: 50px;
+            height: auto;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            select {
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px 16px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            img {
+                max-width: 40px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.2em;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            select {
+                padding: 6px;
+            }
+
+            button {
+                padding: 6px 12px;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            img {
+                max-width: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 style="color: rgb(36,117,165);">HSM-CAFETERIA</h1>
+
+        <form id="orderForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="studentID">Student ID:</label>
+            <input type="text" id="studentID" name="studentID" required>
+
+            <fieldset>
+                <legend>Select Your Shift:</legend>
+                <label>
+                    <input type="radio" name="shift" value="Morning" required> Morning
+                </label>
+                <label>
+                    <input type="radio" name="shift" value="Evening" required> Evening
+                </label>
+            </fieldset>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="samosa" value="25"> Samosa
+                            <img src="https://thecookingfoodie.com/wp-content/uploads/2020/04/IMG_4128-2.jpg" alt="Samosa">
+                        </td>
+                        <td>25</td>
+                        <td><input type="number" id="qty-samosa" placeholder="0" min="0" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="pakoda" value="10"> Pakoda
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNnX0iqYh7kAwHmhIA_5o8mdfszYbMbPbLbw&s" alt="Pakoda">
+                        </td>
+                        <td>10</td>
+                        <td><input type="number" id="qty-pakoda" placeholder="0" min="0" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="chaat" value="60"> Chaat
+                            <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2021/05/chana-chaat-with-yogurt.jpg" alt="Chaat">
+                        </td>
+                        <td>60</td>
+                        <td><input type="number" id="qty-chaat" placeholder="0" min="0" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="momo" value="80"> Momo
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Momo_nepal.jpg/640px-Momo_nepal.jpg" alt="Momo">
+                        </td>
+                        <td>80</td>
+                        <td><input type="number" id="qty-momo" placeholder="0" min="0" max="5"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+            <p class="total" id="total-price">Total Price: 0</p>
+            <button type="button" onclick="submitOrder()">Submit Your Order</button>
+            <div id="queue-info" class="queue-info"></div>
+        </form>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            let total = 0;
+            const items = document.querySelectorAll('input[type="checkbox"]:checked');
+            items.forEach(item => {
+                const price = parseInt(item.value);
+                const qty = parseInt(document.getElementById(`qty-${item.id}`).value);
+                total += price * qty;
+            });
+            document.getElementById('total-price').textContent = `Total Price: ${total}`;
+        }
+
+        function submitOrder() {
+            const form = document.getElementById('orderForm');
+            const formData = new FormData(form);
+            const data = {};
+            for (const [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            const items = document.querySelectorAll('input[type="checkbox"]:checked');
+            const orderItems = [];
+            items.forEach(item => {
+                const qty = parseInt(document.getElementById(`qty-${item.id}`).value);
+                if (qty > 0) {
+                    orderItems.push({
+                        item: item.id,
+                        qty
+                    });
+                }
+            });
+            data.items = orderItems;
+            console.log(data);
+
+            const currentTime = new Date();
+            const hour = currentTime.getHours();
+            const studentShift = formData.get('shift');
+            let cutOffTime = studentShift === "Morning" ? 7 : 13; 
+            if (hour < cutOffTime) {
+            
+            // Send data to server
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                document.getElementById('queue-info').textContent = 'Your order has been submitted successfully!';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+            } else {
+            document.getElementById('queue-info').innerText = `Sorry, you can no longer order. The cut-off time was ${cutOffTime === 7 ? "7 AM" : "1 PM"}.`;
+            }
+        }
+    </script>
+
+</body>
+</html>

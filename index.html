@@ -1,267 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0039)http://127.0.0.1:5500/lab3.java/p4.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HSM-CAFETERIA</title>
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color:rgb(36,117,165);
-        }
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: rgb(36, 117, 165);
+      }
 
+      .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+      }
+
+      img {
+        max-width: 50px;
+        height: auto;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 600px) {
         .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
+          padding: 20px;
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
+          font-size: 1.5em;
         }
 
         input[type="text"],
         input[type="number"],
         select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
+          padding: 8px;
         }
 
         button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            width: 100%;
-        }
-         button:hover {
-            background-color: #45a049;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 15px;
+          padding: 8px 16px;
         }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
+        table {
+          font-size: 0.9em;
         }
 
         img {
-            max-width: 50px;
-            height: auto;
-            vertical-align: middle;
-            margin-left: 10px;
+          max-width: 40px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        h1 {
+          font-size: 1.2em;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            input[type="text"],
-            input[type="number"],
-            select {
-                padding: 8px;
-            }
-
-            button {
-                padding: 8px 16px;
-            }
-
-            table {
-                font-size: 0.9em;
-            }
-
-            img {
-                max-width: 40px;
-            }
+        input[type="text"],
+        input[type="number"],
+        select {
+          padding: 6px;
         }
 
-        @media (max-width: 400px) {
-            h1 {
-                font-size: 1.2em;
-            }
-
-            input[type="text"],
-            input[type="number"],
-            select {
-                padding: 6px;
-            }
-
-            button {
-                padding: 6px 12px;
-            }
-
-            table {
-                font-size: 0.8em;
-            }
-
-            img {
-                max-width: 30px;
-            }
+        button {
+          padding: 6px 12px;
         }
+
+        table {
+          font-size: 0.8em;
+        }
+
+        img {
+          max-width: 30px;
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        <h1 style="color: rgb(36,117,165);">HSM-CAFETERIA</h1>
+      <h1 style="color: rgb(36, 117, 165)">HSM-CAFETERIA</h1>
 
-        <form id="orderForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+      <form id="orderForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required="">
 
-            <label for="studentID">Student ID:</label>
-            <input type="text" id="studentID" name="studentID" required>
+        <label for="studentID">Student ID:</label>
+        <input type="text" id="studentID" name="studentID" required="">
 
-            <fieldset>
-                <legend>Select Your Shift:</legend>
-                <label>
-                    <input type="radio" name="shift" value="Morning" required> Morning
-                </label>
-                <label>
-                    <input type="radio" name="shift" value="Evening" required> Evening
-                </label>
-            </fieldset>
+        <fieldset>
+          <legend>Select Your Shift:</legend>
+          <label>
+            <input type="radio" name="shift" value="Morning" required=""> Morning
+          </label>
+          <label>
+            <input type="radio" name="shift" value="Evening" required=""> Evening
+          </label>
+        </fieldset>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <input type="checkbox" id="samosa" value="25"> Samosa
-                            <img src="https://thecookingfoodie.com/wp-content/uploads/2020/04/IMG_4128-2.jpg" alt="Samosa">
-                        </td>
-                        <td>25</td>
-                        <td><input type="number" id="qty-samosa" placeholder="0" min="0" max="10"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" id="pakoda" value="10"> Pakoda
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNnX0iqYh7kAwHmhIA_5o8mdfszYbMbPbLbw&s" alt="Pakoda">
-                        </td>
-                        <td>10</td>
-                        <td><input type="number" id="qty-pakoda" placeholder="0" min="0" max="10"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" id="chaat" value="60"> Chaat
-                            <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2021/05/chana-chaat-with-yogurt.jpg" alt="Chaat">
-                        </td>
-                        <td>60</td>
-                        <td><input type="number" id="qty-chaat" placeholder="0" min="0" max="10"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" id="momo" value="80"> Momo
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Momo_nepal.jpg/640px-Momo_nepal.jpg" alt="Momo">
-                        </td>
-                        <td>80</td>
-                        <td><input type="number" id="qty-momo" placeholder="0" min="0" max="5"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button type="button" onclick="calculateTotal()">Calculate Total</button>
-            <p class="total" id="total-price">Total Price: 0</p>
-            <button type="button" onclick="submitOrder()">Submit Your Order</button>
-            <div id="queue-info" class="queue-info"></div>
-        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="checkbox" id="samosa" value="25"> Samosa
+                <img src="./HSM-CAFETERIA_files/IMG_4128-2.jpg" alt="Samosa">
+              </td>
+              <td>25</td>
+              <td>
+                <input type="number" id="qty-samosa" placeholder="0" min="0" max="10" oninput="autoCheckCheckbox(&#39;samosa&#39;)">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="pakoda" value="10"> Pakoda
+                <img src="./HSM-CAFETERIA_files/images" alt="Pakoda">
+              </td>
+              <td>10</td>
+              <td>
+                <input type="number" id="qty-pakoda" placeholder="0" min="0" max="10" oninput="autoCheckCheckbox(&#39;pakoda&#39;)">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="chaat" value="60"> Chaat
+                <img src="./HSM-CAFETERIA_files/chana-chaat-with-yogurt.jpg" alt="Chaat">
+              </td>
+              <td>60</td>
+              <td>
+                <input type="number" id="qty-chaat" placeholder="0" min="0" max="10" oninput="autoCheckCheckbox(&#39;chaat&#39;)">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="momo" value="80"> Momo
+                <img src="./HSM-CAFETERIA_files/Momo_nepal.jpg" alt="Momo">
+              </td>
+              <td>80</td>
+              <td>
+                <input type="number" id="qty-momo" placeholder="0" min="0" max="5" oninput="autoCheckCheckbox(&#39;momo&#39;)">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" onclick="calculateTotal()">
+          Calculate Total
+        </button>
+        <p class="total" id="total-price">Total Price: 0</p>
+        <button type="button" onclick="submitOrder()">Submit Your Order</button>
+        <div id="queue-info" class="queue-info">Your order has been submitted successfully!</div>
+        <p id="order-token">Your Order Token: 28</p>
+        <!-- Display the token here -->
+      </form>
     </div>
 
     <script>
-        function calculateTotal() {
-            let total = 0;
-            const items = document.querySelectorAll('input[type="checkbox"]:checked');
-            items.forEach(item => {
-                const price = parseInt(item.value);
-                const qty = parseInt(document.getElementById(`qty-${item.id}`).value);
-                total += price * qty;
-            });
-            document.getElementById('total-price').textContent = `Total Price: ${total}`;
+      // Get the current order number from localStorage or set it to 1 if not available
+      let currentOrderNumber = localStorage.getItem("orderNumber");
+      if (!currentOrderNumber) {
+        currentOrderNumber = 1; // Start the order number at 1
+      } else {
+        currentOrderNumber = parseInt(currentOrderNumber);
+      }
+
+      // Function to increment and save the order number
+      function incrementOrderNumber() {
+        currentOrderNumber++;
+        localStorage.setItem("orderNumber", currentOrderNumber); // Save updated order number
+      }
+
+      // Auto-check checkbox when quantity > 0
+      function autoCheckCheckbox(itemId) {
+        const qty = parseInt(document.getElementById(`qty-${itemId}`).value);
+        const checkbox = document.getElementById(itemId);
+
+        if (qty > 0) {
+          checkbox.checked = true; // Auto check the checkbox
+        } else {
+          checkbox.checked = false; // Uncheck the checkbox if quantity is 0
+        }
+      }
+
+      function calculateTotal() {
+        let total = 0;
+        const items = document.querySelectorAll(
+          'input[type="checkbox"]:checked'
+        );
+
+        items.forEach((item) => {
+          const price = parseInt(item.value);
+          const qtyInput = document.getElementById(`qty-${item.id}`);
+          const qty = qtyInput ? parseInt(qtyInput.value) : 0; // Get the value of quantity, default to 0 if not set
+          if (qty && qty >= 0) {
+            total += price * qty;
+          }
+        });
+
+        document.getElementById(
+          "total-price"
+        ).textContent = `Total Price: ${total}`;
+      }
+
+      function submitOrder() {
+        const name = document.getElementById("name").value;
+        const studentID = document.getElementById("studentID").value;
+        const shiftSelected = document.querySelector(
+          'input[name="shift"]:checked'
+        );
+
+        // Check if Name, Student ID, and Shift are provided
+        if (!name || !studentID || !shiftSelected) {
+          alert(
+            "Please fill in all the fields: Name, Student ID, and Select Shift."
+          );
+          return;
         }
 
-        function submitOrder() {
-            const form = document.getElementById('orderForm');
-            const formData = new FormData(form);
-            const data = {};
-            for (const [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-            const items = document.querySelectorAll('input[type="checkbox"]:checked');
-            const orderItems = [];
-            items.forEach(item => {
-                const qty = parseInt(document.getElementById(`qty-${item.id}`).value);
-                if (qty > 0) {
-                    orderItems.push({
-                        item: item.id,
-                        qty
-                    });
-                }
-            });
-            data.items = orderItems;
-            console.log(data);
-
-            const currentTime = new Date();
-            const hour = currentTime.getHours();
-            const studentShift = formData.get('shift');
-            let cutOffTime = studentShift === "Morning" ? 7 : 13; 
-            if (hour < cutOffTime) {
-            
-            // Send data to server
-            fetch('https://jsonplaceholder.typicode.com/posts', {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                document.getElementById('queue-info').textContent = 'Your order has been submitted successfully!';
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-            } else {
-            document.getElementById('queue-info').innerText = `Sorry, you can no longer order. The cut-off time was ${cutOffTime === 7 ? "7 AM" : "1 PM"}.`;
-            }
+        const form = document.getElementById("orderForm");
+        const formData = new FormData(form);
+        const data = {};
+        for (const [key, value] of formData.entries()) {
+          data[key] = value;
         }
+        const items = document.querySelectorAll(
+          'input[type="checkbox"]:checked'
+        );
+        const orderItems = [];
+        items.forEach((item) => {
+          const qty = parseInt(document.getElementById(`qty-${item.id}`).value);
+          if (qty > 0) {
+            orderItems.push({
+              item: item.id,
+              qty,
+            });
+          }
+        });
+        data.items = orderItems;
+
+        const currentTime = new Date();
+        const hour = currentTime.getHours();
+        const studentShift = formData.get("shift");
+        let cutOffTime = studentShift === "Morning" ? 7 : 13;
+        if (hour < cutOffTime) {
+          // Generate a random token after order submission
+          const token = Math.random().toString(36).substring(2, 15);
+          document.getElementById(
+            "order-token"
+          ).textContent = `Your Order Token: ${currentOrderNumber}`; // Show order number
+
+          // Increment the order number for next order
+          incrementOrderNumber();
+
+          // Reset the form after submission
+          form.reset();
+          document.getElementById("total-price").textContent = "Total Price: 0"; // Reset total
+          document.getElementById("queue-info").textContent =
+            "Your order has been submitted successfully!";
+        } else {
+          document.getElementById(
+            "queue-info"
+          ).innerText = `Sorry, you can no longer order. The cut-off time was ${
+            cutOffTime === 7 ? "7 AM" : "1 PM"
+          }.`;
+        }
+      }
     </script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 
-</body>
-</html>
+
+</body></html>

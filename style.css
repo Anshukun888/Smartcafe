@@ -73,10 +73,16 @@ img {
   margin-left: 10px;
 }
 
-/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 600px) {
   .container {
     padding: 20px;
+    max-width: 100%;
   }
 
   h1 {
@@ -87,10 +93,12 @@ img {
   input[type="number"],
   select {
     padding: 8px;
+    font-size: 16px; /* Ensure text is readable without zooming */
   }
 
   button {
     padding: 8px 16px;
+    font-size: 16px; /* Ensure text is readable without zooming */
   }
 
   table {
@@ -103,6 +111,10 @@ img {
 }
 
 @media (max-width: 400px) {
+  .container {
+    max-width: 100%;
+  }
+
   h1 {
     font-size: 1.2em;
   }
@@ -111,10 +123,12 @@ img {
   input[type="number"],
   select {
     padding: 6px;
+    font-size: 16px; /* Ensure text is readable without zooming */
   }
 
   button {
     padding: 6px 12px;
+    font-size: 16px; /* Ensure text is readable without zooming */
   }
 
   table {

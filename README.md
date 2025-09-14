@@ -13,6 +13,6 @@ Real-time updates on order status.
 Designed with scalability and usability in mind.
 
 Achievements:
-🏆 Won the Creative Idea award at [Your College Name] Hackathon.
+🏆 Won the Creative Idea award at Hetauda School of Management & Soical Science Hackathon.
 
 Tech Stack:HTML, CSS, JS, Python, SQL

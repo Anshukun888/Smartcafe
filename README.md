@@ -1,4 +1,4 @@
-##Smart Cafe Web App 🍽️
+## Smart Cafe Web App 🍽️
 
 A college hackathon-winning project that streamlines food ordering in the campus canteen. This web application allows students to order food using a token-based system, reducing wait times and improving the overall dining experience.
 
